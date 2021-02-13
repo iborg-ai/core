@@ -9,7 +9,7 @@ const options = {
 };
 const server = https.createServer(options);
 const wss = new WebSocket.Server({ server });
-server.listen(9443);
+server.listen(8443);
 
 const clients = [];
 const webClients = [];
