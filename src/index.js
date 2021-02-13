@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const url = require('url');
 const wss = new WebSocket.Server({
-  port: 3000
+  port: 8080
 });
 
 const clients = [];
