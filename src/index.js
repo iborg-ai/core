@@ -1,8 +1,15 @@
 const WebSocket = require('ws');
 const url = require('url');
-const wss = new WebSocket.Server({
-  port: 8888
-});
+const fs = require('fs');
+const https = require('https');
+
+const options = {
+  key: fs.readFileSync('/etc/ssl/key.pem'),
+  cert: fs.readFileSync('/etc/ssl/cert.pem')
+};
+const server = https.createServer(options);
+const wss = new WebSocket.Server({ server });
+server.listen(9443);
 
 const clients = [];
 const webClients = [];
